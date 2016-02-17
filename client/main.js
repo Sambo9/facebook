@@ -1,6 +1,6 @@
 var myApp = angular.module('myApp', ['ngRoute',"ngAnimate"]);
 
-myApp.config(function ($routeProvider) {
+myApp.config(function ($routeProvider, $locationProvider) {
    $routeProvider
    .when('/', {templateUrl: 'partials/home.html'})
    .when('/login', {
@@ -26,6 +26,8 @@ myApp.config(function ($routeProvider) {
       access: {restricted: true}
    })
    .otherwise({redirectTo: '/'});
+
+   $locationProvider.html5Mode(true);
 });
 
 myApp.run(function ($rootScope, $location, $route, AuthService) {
