@@ -8,18 +8,19 @@
    <!-- styles -->
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <link href="//maxcdn.bootstrapcdn.com/bootswatch/3.3.4/yeti/bootstrap.min.css" rel="stylesheet">
+   <link rel="stylesheet" type="text/css" href="./libs/css/bootstrap.css">
+   <link rel="stylesheet" id="ppstyle" type="text/css" href="./libs/css/style.css">
 </head>
+<body>
 
-<div class="container">
-   <!-- Navbar -->
-   <br>
-   <br>
-   <div class="wrapper">
-      <div class="box">
-         <div class="row row-offcanvas row-offcanvas-left">
+   <!-- Main container -->
+   <div class="page-container">
 
+      <!-- Navigation Bloc -->
+      <div class="bloc l-bloc bgc-white" id="nav-bloc">
+         <div class="container bloc-sm">
             <!-- top nav -->
-            <div class="navbar navbar-inverted navbar-fixed-top">
+            <div class="navbar navbar-default navbar-fixed-top">
                <div class="navbar-header">
                   <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
                      <span class="sr-only">Toggle</span>
@@ -60,9 +61,35 @@
                </nav>
             </div>
             <!-- /top nav -->
-         </div><!-- /col-9 -->
-      </div><!-- /padding -->
+         </div>
+      </div>
+      <!-- Navigation Bloc END -->
+
+      <!-- bloc-1 -->
+      <div class="bloc bgc-white bg-camera-overlay d-bloc b-parallax" id="bloc-1">
+         <div class="container bloc-lg">
+            <div class="row">
+               <div class="col-sm-12">
+                  <div ng-view></div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- bloc-1 END -->
+
+      <!-- Footer - bloc-2 -->
+      <div class="bloc l-bloc bgc-white" id="bloc-2">
+         <div class="container bloc-lg">
+            <div class="row">
+               <div class="col-sm-12">
+                  <span class="empty-column"></span>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- Footer - bloc-2 END -->
    </div>
+
    <!--post modal-->
    <div id="postModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
       <div class="modal-dialog">
@@ -89,18 +116,17 @@
    </div>
    <!-- !Navbar -->
    <!-- Angular View -->
-   <div ng-view></div>
-</div>
 
-<!-- scripts -->
-<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.js"></script>
-<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.min.js"></script>
-<script src="./main.js"></script>
-<script src="controllers.js"></script>
-<script src="./services.js"></script>
+
+   <!-- scripts -->
+   <script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+   <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+   <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+   <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.js"></script>
+   <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.min.js"></script>
+   <script src="./main.js"></script>
+   <script src="controllers.js"></script>
+   <script src="./services.js"></script>
 
 
 </body>

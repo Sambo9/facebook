@@ -20,6 +20,7 @@ angular.module('myApp').controller('loginController',
         .then(function () {
           $location.path('/');
           $scope.disabled = false;
+          $scope.connected = true;
           $scope.loginForm = {};
         })
         // handle error
