@@ -14,6 +14,10 @@ function ($q, $timeout, $http) {
       register: register
    });
 
+   function setUser(user) {
+      user = user;
+   }
+
    function isLoggedIn() {
       if(user) {
          return true;
@@ -30,7 +34,7 @@ function ($q, $timeout, $http) {
       var deferred = $q.defer();
 
       // send a post request to the server
-      $http.post('/user/login', {username: username, password: password})
+      $http.post('/login', {username: username, password: password})
       // handle success
       .success(function (data, status) {
          if(status === 200 && data.status){
@@ -57,7 +61,7 @@ function ($q, $timeout, $http) {
       var deferred = $q.defer();
 
       // send a get request to the server
-      $http.get('/user/logout')
+      $http.get('/logout')
       // handle success
       .success(function (data) {
          user = false;
@@ -79,7 +83,7 @@ function ($q, $timeout, $http) {
       var deferred = $q.defer();
 
       // send a post request to the server
-      $http.post('/user/register', {username: username, password: password, firstname: firstname, lastname: lastname, address: address, email: email})
+      $http.post('/register', {username: username, password: password, firstname: firstname, lastname: lastname, address: address, email: email})
       // handle success
       .success(function (data, status) {
          if(status === 200 && data.status){
