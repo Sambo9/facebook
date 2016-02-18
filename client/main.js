@@ -3,6 +3,10 @@ var myApp = angular.module('myApp', ['ngRoute',"ngAnimate"]);
 myApp.config(function ($routeProvider, $locationProvider) {
    $routeProvider
    .when('/', {templateUrl: 'partials/home.html'})
+   .when('/messages',{
+      templateUrl: 'partials/messages.html',
+      controller: 'messagesController as msg'
+   })
    .when('/login', {
       templateUrl: 'partials/login.html',
       controller: 'loginController',

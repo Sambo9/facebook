@@ -43,7 +43,7 @@
                      <li>
                         <a ng-href="/home"><i class="glyphicon glyphicon-home"></i> Home</a>
                      </li>
-                     <li ng-if='!main.connected'>
+                     <li ng-if='main.connected'>
                         <a href="#postModal" role="button" data-toggle="modal"><i class="glyphicon glyphicon-plus"></i> Post</a>
                      </li>
                      <li ng-if='!main.connected'>
@@ -57,14 +57,38 @@
                      <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-user"></i></a>
                         <ul class="dropdown-menu">
-                           <li ng-if='main.connected'><a ng-click='logout()' class="btn btn-default">Logout</a></li>
-                           <li ng-if='!main.connected'><a ng-click='logout()' class="btn btn-default">Login</a></li>
+                           <li ng-if='main.connected'><a ng-href='/logout' class="btn btn-primary">Logout</a></li>
+                           <li ng-if='!main.connected'><a ng-href='/login' class="btn btn-default">Login</a></li>
                         </ul>
                      </li>
                   </ul>
                </nav>
             </div>
             <!-- /top nav -->
+         </div>
+         <!--post modal-->
+         <div id="postModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+               <div class="modal-content">
+                  <div class="modal-header">
+                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                     Update Status
+                  </div>
+                  <div class="modal-body">
+                     <form class="form center-block">
+                        <div class="form-group">
+                           <textarea class="form-control input-lg" autofocus="" placeholder="What do you want to share?"></textarea>
+                        </div>
+                     </form>
+                  </div>
+                  <div class="modal-footer">
+                     <div>
+                        <button class="btn btn-primary btn-sm" data-dismiss="modal" aria-hidden="true">Post</button>
+                        <ul class="pull-left list-inline"><li><a href=""><i class="glyphicon glyphicon-upload"></i></a></li><li><a href=""><i class="glyphicon glyphicon-camera"></i></a></li><li><a href=""><i class="glyphicon glyphicon-map-marker"></i></a></li></ul>
+                     </div>
+                  </div>
+               </div>
+            </div>
          </div>
       </div>
       <!-- Navigation Bloc END -->
@@ -94,36 +118,8 @@
       <!-- Footer - bloc-2 END -->
    </div>
 
-   <!--post modal-->
-   <div id="postModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
-      <div class="modal-dialog">
-         <div class="modal-content">
-            <div class="modal-header">
-               <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-               Update Status
-            </div>
-            <div class="modal-body">
-               <form class="form center-block">
-                  <div class="form-group">
-                     <textarea class="form-control input-lg" autofocus="" placeholder="What do you want to share?"></textarea>
-                  </div>
-               </form>
-            </div>
-            <div class="modal-footer">
-               <div>
-                  <button class="btn btn-primary btn-sm" data-dismiss="modal" aria-hidden="true">Post</button>
-                  <ul class="pull-left list-inline"><li><a href=""><i class="glyphicon glyphicon-upload"></i></a></li><li><a href=""><i class="glyphicon glyphicon-camera"></i></a></li><li><a href=""><i class="glyphicon glyphicon-map-marker"></i></a></li></ul>
-               </div>
-            </div>
-         </div>
-      </div>
-   </div>
-   <!-- !Navbar -->
-   <!-- Angular View -->
-
-
    <!-- scripts -->
-   <script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.js"></script>
@@ -131,7 +127,5 @@
    <script src="./main.js"></script>
    <script src="controllers.js"></script>
    <script src="./services.js"></script>
-
-
 </body>
 </html>
