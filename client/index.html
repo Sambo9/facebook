@@ -43,14 +43,12 @@
                      <li>
                         <a ng-href="/home"><i class="glyphicon glyphicon-home"></i> Home</a>
                      </li>
+                     <li ng-if='main.connected'><a ng-href='/messages'>Messages</a></li>
                      <li ng-if='main.connected'>
                         <a href="#postModal" role="button" data-toggle="modal"><i class="glyphicon glyphicon-plus"></i> Post</a>
                      </li>
                      <li ng-if='!main.connected'>
-                        <a ng-href="/Register"><i class="glyphicon glyphicon-home"></i> Register</a>
-                     </li>
-                     <li>
-                        <a ng-href="/one"><span class="badge">badge</span></a>
+                        <a ng-href="/register"><i class="glyphicon glyphicon-home"></i> Register</a>
                      </li>
                   </ul>
                   <ul class="nav navbar-nav navbar-right">
@@ -119,7 +117,7 @@
    </div>
 
    <!-- scripts -->
-   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+   <script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.js"></script>

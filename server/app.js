@@ -21,7 +21,6 @@ var app = express();
 
 // require routes
 var routesAuth = require('./routes/authenticate.js');
-var messages = require('./routes/messagesRoute.js');
 
 // define middleware
 app.use(express.static(path.join(__dirname, '../client')));
@@ -45,9 +44,7 @@ passport.deserializeUser(User.deserializeUser());
 
 // routes
 app.use('/', routesAuth);
-app.use('/api/messages', messages);
-
-
+app.use('/api/messages', require('./routes/messagesRoute'));
 
 app.get('*', function(req, res) {
   res.sendFile(path.join(__dirname, '../client', 'index.html'));

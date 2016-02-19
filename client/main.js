@@ -2,32 +2,27 @@ var myApp = angular.module('myApp', ['ngRoute',"ngAnimate"]);
 
 myApp.config(function ($routeProvider, $locationProvider) {
    $routeProvider
+   .when('/messages', {
+                templateUrl: 'partials/messages.html',
+                controller: 'MessagesController as msg'
+            })
    .when('/', {templateUrl: 'partials/home.html'})
-   .when('/messages',{
-      templateUrl: 'partials/messages.html',
-      controller: 'messagesController as msg'
-   })
    .when('/login', {
       templateUrl: 'partials/login.html',
       controller: 'loginController',
-      access: {restricted: false}
    })
    .when('/logout', {
       controller: 'logoutController',
-      access: {restricted: true}
    })
    .when('/register', {
       templateUrl: 'partials/register.html',
       controller: 'registerController',
-      access: {restricted: false}
    })
    .when('/one', {
       template: '<h1>This is page one!</h1>',
-      access: {restricted: true}
    })
    .when('/home', {
       template: '<h1>This is page two!</h1>',
-      access: {restricted: true}
    })
    .otherwise({redirectTo: '/'});
 

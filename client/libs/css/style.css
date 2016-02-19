@@ -388,7 +388,7 @@ iframe{
 	   -webkit-transform:none;
 	   -ms-transform:none;
     }
-    
+
     .btn.pull-left, .btn.pull-right{
        float:none!important;
     }

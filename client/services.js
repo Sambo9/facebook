@@ -11,11 +11,12 @@ function ($q, $timeout, $http) {
       getUserStatus: getUserStatus,
       login: login,
       logout: logout,
-      register: register
+      register: register,
+      setUser: setUser
    });
 
    function setUser(user) {
-      user = user;
+      window.user = user;
    }
 
    function isLoggedIn() {

@@ -23,8 +23,6 @@ angular.module('myApp').controller('loginController',
 ['$scope', '$location', 'AuthService',
 function ($scope, $location, AuthService) {
 
-   console.log(AuthService.getUserStatus());
-
    $scope.login = function () {
 
       // initial values
@@ -59,8 +57,6 @@ function ($scope, $location, AuthService) {
 
    $scope.logout = function () {
 
-      console.log(AuthService.getUserStatus());
-
       // call logout from service
       AuthService.logout()
       .then(function () {
@@ -79,8 +75,9 @@ angular.module('myApp').controller('registerController',
 ['$scope', '$location', 'AuthService',
 function ($scope, $location, AuthService) {
 
-   console.log(AuthService.getUserStatus());
-
+   if(window.user) {
+      $location.path('/');
+   }
    $scope.register = function () {
 
       // initial values
@@ -108,35 +105,35 @@ function ($scope, $location, AuthService) {
 }]);
 
 
+angular.module('myApp').controller('MessagesController', function($scope, $http) {
+        var _this = this;
 
-angular.module('myApp').controller('messagesController', function($scope, $http){
-   var _this = this;
+        $scope.main.title = 'Messages';
 
-   $scope.main.title = 'Messages';
+        this.getMessages = function() {
+            $http.get('/api/messages')
+                .then(function(res) {
+                    _this.messages = res.data;
+                });
+        };
 
-   this.getMessages = function() {
-      $http.get('/api/messages')
-      .then(function(res) {
-         _this.messages = res.data;
-      });
-   };
+        this.getMessages();
 
-   this.getMessages();
+        this.removeMessage = function(id) {
+            $http.delete('/api/messages/' + id)
+            .then(function() {
+                _this.getMessages();
+            });
+        };
 
-   this.removeMessage = function(id) {
-      $http.delete('/api/messages/' + id)
-      .then(function() {
-         _this.getMessages();
-      });
-   };
+        this.sendMessage = function() {
+            if (!this.newmsg || !this.newmsg.title || !this.newmsg.text)
+                return ;
+            $http.post('/api/messages', this.newmsg)
+            .then(function() {
+                _this.getMessages();
+            });
+            this.newmsg = {};
+        };
 
-   this.sendMessage = function() {
-      if (!this.newmsg || !this.newmsg.title || !this.newmsg.text)
-      return ;
-      $http.post('/api/messages', this.newmsg)
-      .then(function() {
-         _this.getMessages();
-      });
-      this.newmsg = {};
-   };
-})
+    });

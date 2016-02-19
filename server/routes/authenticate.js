@@ -41,6 +41,6 @@ router.get('/islogged', function(req, res){
    } else {
       res.status(200).json({});
    }
-})
+});
 
 module.exports = router;
